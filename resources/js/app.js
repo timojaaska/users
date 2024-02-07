@@ -5,7 +5,12 @@
  */
 
 import './bootstrap';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { createApp } from 'vue';
+import '../sass/app.scss';
+import Login from '@/views/Login.vue';
+import Register from '@/views/Register.vue';
+import ForgotPassword from '@/views/ForgotPassword.vue';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,7 +18,28 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/forgotPassword',
+      name: 'forgotPassword',
+      component: ForgotPassword
+    },
+    {
+      path: '/',
+      name: 'login',
+      component: Login
+    },
+  ]
+});
+
+const app = createApp({}).use(router);
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
