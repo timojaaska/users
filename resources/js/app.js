@@ -8,9 +8,9 @@ import './bootstrap';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { createApp } from 'vue';
 import '../sass/app.scss';
-import Login from '@/views/Login.vue';
-import Register from '@/views/Register.vue';
-import ForgotPassword from '@/views/ForgotPassword.vue';
+import LoginView from '@/views/LoginView.vue';
+import RegisterView from '@/views/RegisterView.vue';
+import ForgotPasswordView from '@/views/ForgotPasswordView.vue';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -24,18 +24,18 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: RegisterView
     },
     {
       path: '/forgotPassword',
       name: 'forgotPassword',
-      component: ForgotPassword
+      component: ForgotPasswordView
     },
     {
       path: '/',
       name: 'login',
-      component: Login
-    },
+      component: LoginView
+    }
   ]
 });
 
