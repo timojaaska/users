@@ -9,6 +9,7 @@
         <div class="form-group pb-1">
           <label for="email">Sähköposti</label><br>
           <input
+            v-model="user.email"
             type="email"
             id="email"
             class="form-control"
