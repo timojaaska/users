@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +17,23 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+
+require __DIR__.'/auth.php';
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/create', [RegisterController::class, 'makeUserData']);
+// Route::post('/create', [RegisterController::class, 'makeUserData']);
+// Route::post('register', [RegisteredUserController::class, 'store']);
 
-Route::get('/email/verify', function () {   //ver
-    return view('auth.verify-email');       //ver
-})->middleware('auth')->name('verification.notice');    //ver
+// Route::post('/create', [RegisteredUserController::class, 'store']);
+
+// Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
+// ->middleware(['signed', 'throttle:6,1'])
+// ->name('verification.verify');

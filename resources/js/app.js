@@ -11,6 +11,8 @@ import '../sass/app.scss';
 import LoginView from '@/views/LoginView.vue';
 import RegisterView from '@/views/RegisterView.vue';
 import ForgotPasswordView from '@/views/ForgotPasswordView.vue';
+// import axios from 'axios';
+// axios.defaults.baseURL = '/api'
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin

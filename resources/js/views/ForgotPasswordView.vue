@@ -5,10 +5,11 @@
     </div>
     <div class="card-body">  
       <h5>Syötä käyttämäsi sähköposti.</h5>
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="forgotPassword">
         <div class="form-group pb-1">
           <label for="email">Sähköposti</label><br>
           <input
+            v-model="user.email"
             type="email"
             id="email"
             class="form-control"
@@ -25,7 +26,23 @@
 </template>
 
 <script setup>
-async function handleSubmit() {
-  console.log('painettu');
+import userapi from '../api/user.js'
+import { ref } from 'vue'
+
+const user = ref({
+    email: '',
+  });
+// async function handleSubmit() {
+//   console.log('painettu');
+// }
+
+async function forgotPassword() {
+  try {
+    const data = user.value
+    await userapi.forgotPassword(data);
+    // console.log('tässä maili: ', data);
+  } catch (err) {
+    console.error(err);
+  }
 }
 </script>

@@ -4,7 +4,7 @@
       Rekisteröinti
     </div>
     <div class="card-body">  
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="createUser">
         <h5>Täytä tietosi ole hyvä.</h5>
         <div class="form-group pb-1">
 
@@ -92,10 +92,10 @@
 
   const errors = ref({});
 
-  async function handleSubmit() {
-    // console.log('painettu: ', user.value);
-    createUser()
-  }
+  // async function handleSubmit() {
+  //   // console.log('painettu: ', user.value);
+  //   createUser()
+  // }
 
   async function createUser() {
   // errors.value = {};
